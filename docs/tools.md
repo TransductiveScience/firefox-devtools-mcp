@@ -15,6 +15,7 @@ the Mozilla-internal build; the public package drops both.
 | ------------------------- | ----- | ---- | ----- | --------- | ------- | --- |
 | `pages`                   | 6     | yes  | yes   | yes       | yes     | yes |
 | `snapshot`                | 3     | yes  | yes   | yes       | yes     | yes |
+| `text-extraction`         | 1     | yes  | yes   | yes       | yes     | yes |
 | `input`                   | 8     | yes  | yes   | yes       | yes     | yes |
 | `network`                 | 3     | -    | -     | yes       | yes     | yes |
 | `console`                 | 2     | -    | -     | yes       | yes     | yes |
@@ -58,6 +59,7 @@ accepted paths.
 
 - [pages](#pages): Open, navigate, select, and close pages.
 - [snapshot](#snapshot): Capture accessibility/DOM snapshots and resolve UIDs.
+- [text-extraction](#text-extraction): Bounded, targeted, read-only DOM text extraction adapted from Firewatch.
 - [input](#input): Interact with the page via UID-based clicks, typing, key presses, drag, and uploads.
 - [network](#network): List and inspect network requests, and control the HTTP cache.
 - [console](#console): Read and clear console messages.
@@ -172,6 +174,24 @@ Parameters:
 Clear snapshot UIDs. Usually not needed.
 
 No parameters.
+
+## text-extraction
+
+Bounded, targeted, read-only DOM text extraction adapted from Firewatch.
+
+### `extract_text`
+
+_Read-only._
+
+Read text from the page, a CSS selector, or an existing snapshot UID. No page mutation.
+
+Parameters:
+
+- `scope` (`page` | `selector` | `uid`, optional) - Default: page.
+- `selector` (string, optional) - Required with scope=selector.
+- `uid` (string, optional) - Snapshot UID, required with scope=uid.
+- `source` (`rendered` | `dom`, optional) - Rendered innerText (default), or textContent.
+- `maxLength` (integer, optional) - Characters (1..20000), default 20000.
 
 ## input
 

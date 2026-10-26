@@ -14,6 +14,7 @@
 
 import { module as pages } from './pages.js';
 import { module as snapshot } from './snapshot.js';
+import { module as textExtraction } from './text-extraction.js';
 import { module as input } from './input.js';
 import { module as network } from './network.js';
 import { module as consoleModule } from './console.js';
@@ -38,6 +39,7 @@ export type { ToolDefinition, ToolEntry, ToolModule } from './module.js';
 export const MODULES: ToolModule[] = [
   pages,
   snapshot,
+  textExtraction,
   input,
   network,
   consoleModule,
@@ -60,7 +62,7 @@ export const MODULES: ToolModule[] = [
 export const MODULE_NAMES = MODULES.map((m) => m.name);
 
 // SLIM: Minimum set of tools to navigate and browser the web efficiently.
-const SLIM = ['pages', 'snapshot', 'input', 'screenshot'];
+const SLIM = ['pages', 'snapshot', 'text-extraction', 'input', 'screenshot'];
 // BASIC: Additional tools useful for regular web-browsing.
 const BASIC = [
   ...SLIM,
