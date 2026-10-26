@@ -15,6 +15,7 @@
 import { module as pages } from './pages.js';
 import { module as snapshot } from './snapshot.js';
 import { module as textExtraction } from './text-extraction.js';
+import { module as diagnostics } from './diagnostics.js';
 import { module as input } from './input.js';
 import { module as network } from './network.js';
 import { module as consoleModule } from './console.js';
@@ -40,6 +41,7 @@ export const MODULES: ToolModule[] = [
   pages,
   snapshot,
   textExtraction,
+  diagnostics,
   input,
   network,
   consoleModule,
@@ -67,6 +69,7 @@ const SLIM = ['pages', 'snapshot', 'text-extraction', 'input', 'screenshot'];
 const BASIC = [
   ...SLIM,
   'downloads',
+  'diagnostics',
   'print',
   // script is often used as a workaround by agents when they can't deal with
   // the page using high level tools.

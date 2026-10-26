@@ -16,6 +16,7 @@ the Mozilla-internal build; the public package drops both.
 | `pages`                   | 6     | yes  | yes   | yes       | yes     | yes |
 | `snapshot`                | 3     | yes  | yes   | yes       | yes     | yes |
 | `text-extraction`         | 1     | yes  | yes   | yes       | yes     | yes |
+| `diagnostics`             | 1     | -    | yes   | yes       | yes     | yes |
 | `input`                   | 8     | yes  | yes   | yes       | yes     | yes |
 | `network`                 | 3     | -    | -     | yes       | yes     | yes |
 | `console`                 | 2     | -    | -     | yes       | yes     | yes |
@@ -59,7 +60,8 @@ accepted paths.
 
 - [pages](#pages): Open, navigate, select, and close pages.
 - [snapshot](#snapshot): Capture accessibility/DOM snapshots and resolve UIDs.
-- [text-extraction](#text-extraction): Bounded, targeted, read-only DOM text extraction adapted from Firewatch.
+- [text-extraction](#text-extraction): Scoped DOM text.
+- [diagnostics](#diagnostics): Firefox setup checks.
 - [input](#input): Interact with the page via UID-based clicks, typing, key presses, drag, and uploads.
 - [network](#network): List and inspect network requests, and control the HTTP cache.
 - [console](#console): Read and clear console messages.
@@ -177,7 +179,7 @@ No parameters.
 
 ## text-extraction
 
-Bounded, targeted, read-only DOM text extraction adapted from Firewatch.
+Scoped DOM text.
 
 ### `extract_text`
 
@@ -192,6 +194,18 @@ Parameters:
 - `uid` (string, optional) - Snapshot UID, required with scope=uid.
 - `source` (`rendered` | `dom`, optional) - Rendered innerText (default), or textContent.
 - `maxLength` (integer, optional) - Characters (1..20000), default 20000.
+
+## diagnostics
+
+Firefox setup checks.
+
+### `diagnose_firefox_environment`
+
+_Read-only._
+
+Read-only Firefox MCP runtime and binary diagnostics; identifies script wrappers and recommends native executable paths without launching the browser.
+
+No parameters.
 
 ## input
 

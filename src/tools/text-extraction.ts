@@ -77,6 +77,6 @@ export const handleExtractText = defineToolHandler(async (args: unknown): Promis
 
 export const module = defineModule({
   name: 'text-extraction',
-  description: 'Bounded, targeted, read-only DOM text extraction adapted from Firewatch.',
+  description: 'Scoped DOM text.',
   tools: [[extractTextTool, handleExtractText]],
 });
